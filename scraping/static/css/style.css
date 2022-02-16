@@ -1,0 +1,30 @@
+
+.bs{
+    height: 170px;
+    background-image: linear-gradient(to left,  rgb(112, 12, 226), rgba(7, 87, 7, 0.322)
+    ,rgb(29, 5, 95));
+    margin-bottom: 2px;
+    animation: bgcolor infinite 3s;
+}
+@keyframes bgcolor{
+    0%{
+        background-image: linear-gradient(to right, rgb(147, 218, 247), rgb(100, 100, 146),
+        rgba(0, 0, 255, 0.171));
+    }
+        20%{
+        background-image: linear-gradient(to left, rgb(8, 22, 99), rgb(127, 156, 189),
+        rgb(36, 8, 196));
+    }
+    
+}
+.hes{
+    margin-left: 33%;
+}
+.sub{
+    margin-left: 10%;
+    background-image: linear-gradient(to left, red, orange);
+}
+.in{
+    font-size: 16pt;
+    height: 50px;
+}
