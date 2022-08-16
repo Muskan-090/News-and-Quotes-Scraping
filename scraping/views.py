@@ -2,7 +2,7 @@ import time
 from django.shortcuts import render
 from .models import StudentSearch
 from .forms import  StudentGeneralSearch
-from .scrap  import WebScraping , QuotesScraping
+from .scrap  import WebScrapingBs,QuotesScrapingBs
 from django.http import HttpResponseRedirect, HttpResponse
 
 
@@ -11,10 +11,10 @@ def news(request):
         fm = StudentGeneralSearch(request.POST)
         if fm.is_valid():
             query=  fm.cleaned_data['query']
-            if query=='news':
+            if query=='news' or 'N' in query or 'n' in query:
                 return HttpResponseRedirect('/zeenews/')
 
-            elif query=='quotes'or  query=='quote':
+            elif query=='quotes'or  query=='quote' or 'Q' in query or 'q' in query :
                 return HttpResponseRedirect('/quotes/')
             else:
                 return HttpResponse('Sorry Here You Search only News and Quotes')
@@ -24,11 +24,11 @@ def news(request):
         return render(request, 'scraping/home.html', {'form':fm})
 
 def Zeenews(request):
-    news = WebScraping()
+    news = WebScrapingBs()
     return render(request, 'scraping/news.html',{'news':news})
 
 
 def Quotes(request):
-    quotes  = QuotesScraping()
+    quotes  = QuotesScrapingBs()
     return render(request, 'scraping/quotes.html', {'quotes':quotes})
 
