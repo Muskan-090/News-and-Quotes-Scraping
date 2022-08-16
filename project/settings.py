@@ -25,7 +25,7 @@ SECRET_KEY = '^oy8qg%ywma4%#98&&wt)acn*dvj(lltf1st#l#sgou%!fz_3@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['scrapper-09.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -118,4 +118,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+
 STATIC_URL = '/static/'
+import django_heroku
+CORS_ORIGIN_ALLOW_ALL = True
+django_heroku.settings(locals())
