@@ -34,16 +34,27 @@ import requests
 #         quotes.append(st[i].text)
 #     return quotes
 
-def QuotesScrapingBs():
-    
-    rs = requests.get('https://www.inc.com/jayson-demers/51-quotes-to-inspire-success-in-your-life-and-business.html')
+rs = requests.get('https://www.shopify.com/in/blog/motivational-quotes')
+if str(rs.status_code).startswith('2'):
     html  = rs.text
     Data = BeautifulSoup(html,'html.parser')
-    st = Data.find_all(class_ = 'standardText')
+    st = Data.find_all(class_ = 'long-form-content')
+    q2 = st[0].find_all('p')[5:]
+    q1 = st[0].find_all('li')
     quotes = []
-    for i in range(len(st)):
-        quotes.append(st[i].text)
-    return quotes
+    for i in range(len(q1)):
+        quotes.append(q1[i].text)
+    for i in range(len(q2)):
+        quotes.append(q2[i].text)
+    
+
+def QuotesScrapingBs():
+    if len(quotes)!=0:
+        
+        return quotes
+
+    else:
+        return " This Page is experiencing difficulties at the moment, Please check back soon."
 
 rs = requests.get('https://timesofindia.indiatimes.com/briefs')
 html  = rs.text
@@ -53,6 +64,9 @@ news = []
 for i in toi:
     if i.h2!=None:
         news.append([i.h2.text, i.p.text])
-
+   
 def WebScrapingBs():
-    return news
+     return news
+
+    
+   
