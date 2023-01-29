@@ -1,3 +1,3 @@
-web: python manage.py collectstatic --no-input;
-web: gunicorn project.wsgi
-heroku ps:scale web=1
+web:python manage.py collectstatic --no-input;
+web:gunicorn project.wsgi
+
