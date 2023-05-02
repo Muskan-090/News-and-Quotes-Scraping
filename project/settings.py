@@ -25,8 +25,7 @@ SECRET_KEY = '^oy8qg%ywma4%#98&&wt)acn*dvj(lltf1st#l#sgou%!fz_3@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['scrapper-09.herokuapp.com', '127.0.0.1']
-
+ALLOWED_HOSTS =  ['.vercel.app', '.now.sh']
 
 # Application definition
 
@@ -120,6 +119,11 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-import django_heroku
-CORS_ORIGIN_ALLOW_ALL = True
-django_heroku.settings(locals())
+# import django_heroku
+# CORS_ORIGIN_ALLOW_ALL = True
+# django_heroku.settings(locals())
+
+STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+
