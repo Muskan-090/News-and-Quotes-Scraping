@@ -22,3 +22,7 @@ urlpatterns = [
     path('zeenews/', views.Zeenews, name='zeenews'),
     path('quotes/', views.Quotes, name='quotes'),
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
